@@ -3,7 +3,7 @@ package com.example.nestordev.contactos_consumo.Models;
 public class User {
     public String id;
     public String username;
-    public String lastname;
+    public String lastName;
     public String age;
     public String gemale;
     public String telephone;
@@ -13,7 +13,7 @@ public class User {
     public User(){
         this.id ="";
         this.username ="";
-        this.lastname ="";
+        this.lastName ="";
         this.age ="";
         this.gemale ="";
         this.telephone ="";
@@ -21,10 +21,10 @@ public class User {
         this.image ="";
     }
 
-    public User(String id,String username,String lastname,String age,String gemale,String telephone,String email,String image){
+    public User(String id,String username,String lastName,String age,String gemale,String telephone,String email,String image){
         this.id =id;
         this.username =username;
-        this.lastname =lastname;
+        this.lastName =lastName;
         this.age =age;
         this.gemale =gemale;
         this.telephone =telephone;

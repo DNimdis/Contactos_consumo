@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,6 +11,7 @@
         android:padding="@dimen/padding_row">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImage"
             android:layout_gravity="center"
             android:layout_width="@dimen/size_image"
             android:layout_height="@dimen/size_image"
@@ -24,6 +25,7 @@
             android:layout_marginStart="10dp"
             >
             <TextView
+                android:id="@+id/userName"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -31,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nestor Ivan Morales"/>
             <TextView
+                android:id="@+id/userEmail"
                 android:textStyle="italic"
                 android:textSize="16sp"
                 android:textColor="@color/black"
@@ -38,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Emai"/>
             <TextView
+                android:id="@+id/userPhone"
                 android:textStyle="italic"
                 android:textSize="16sp"
                 android:textColor="@color/black"
