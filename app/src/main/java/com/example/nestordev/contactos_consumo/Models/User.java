@@ -32,6 +32,23 @@ public class User {
         this.image =image;
 
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        User user = (User) obj;
+
+        if (id != user.id) return false;
+        if (!username.equalsIgnoreCase(user.username)) return false;
+
+        return username != null ? username.equals(user.username) : user.username == null;
+
+    }
+
+
+
+
 
 
 }

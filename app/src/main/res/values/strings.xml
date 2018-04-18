@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Contactos_consumo</string>
+    <string name="app_delete_user"> ¿Estas seguro de eliminar este usuario?</string>
+    <string name="app_delete_title"> Eliminar Usuario </string>
 </resources>

@@ -1,13 +1,16 @@
 package com.example.nestordev.contactos_consumo.Adapter;
 
 import android.app.Activity;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nestordev.contactos_consumo.DiffCallback_Reload.UserDiffCallback;
 import com.example.nestordev.contactos_consumo.Models.User;
 import com.example.nestordev.contactos_consumo.R;
 import com.example.nestordev.contactos_consumo.util.Utils;
@@ -57,7 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder( MyViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(final MyViewHolder viewHolder, final int i) {
 
         viewHolder.txtUserName.setText(items.get(i).username + " " + items.get(i).lastName);
         viewHolder.txtUserEmail.setText(items.get(i).email);
@@ -67,7 +70,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.showMesaje(context, "Has seleccionado a " + items.get(i).username);
+                Utils.showMesaje(context, "Has seleccionado a " +"\n" +items.get(i).username);
+            }
+        });
+
+        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+              boolean resultado = Utils.showMesajeConfirm(context,"¿Estas seguro de eliminar este usuario?"+"\n"+items.get(i).username);
+                Log.d("remove", "onLongClick: "+resultado);
+
+                if (resultado){
+                    items.remove(items.get(i));
+                    updateUserListItems(items);
+                }
+              return resultado;
             }
         });
 
@@ -86,5 +104,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
          */
 
     }
+
+    public void updateUserListItems(ArrayList<User> users) {
+
+
+
+        final UserDiffCallback diffCallback = new UserDiffCallback(this.items, users);
+        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback, false);
+
+        //this.items.clear();
+        //this.items.addAll(users);
+        diffResult.dispatchUpdatesTo(this);
+        this.notifyDataSetChanged();
+
+    }
+
+
 
 }

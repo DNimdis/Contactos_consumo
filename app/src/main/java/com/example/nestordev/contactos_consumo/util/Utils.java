@@ -1,7 +1,10 @@
 package com.example.nestordev.contactos_consumo.util;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -9,14 +12,48 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.nestordev.contactos_consumo.Models.User;
+import com.example.nestordev.contactos_consumo.R;
+
+import java.util.ArrayList;
 
 public class Utils {
 
     public static ProgressDialog pDialog;
+    private  static  boolean bandera;
 
     public static void showMesaje(Context contexto, String mensage){
 
         Toast.makeText(contexto,mensage ,Toast.LENGTH_SHORT).show();
+    }
+
+    public static Boolean showMesajeConfirm(final Context contexto, String mensage ){
+
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(contexto);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                bandera = true;
+
+            }
+        }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+
+                bandera = false;
+            }
+        }).setMessage(mensage).setTitle(R.string.app_delete_title)
+                .setCancelable(true);
+
+        AlertDialog alert = builder.create();
+                    alert.show();
+
+        return  bandera;
+
     }
 
 
