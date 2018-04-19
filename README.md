@@ -1,8 +1,9 @@
 # Android course application: Contactos_consumo
 
 Android course project from 0 to 100 initiated by Ing. Osmar Cancino with the use of network requests, use of Intents, elements of UI, permissions, the application is based on a contact agenda.
+By Nestor Morales - <nimdis95@gmail.com>
 
-Contact Ing. Osmar Cancino
+Contact Instructor Osmar Cancino:
 
 Osmar I. Cancino Díaz - <o.cancinodiaz@gmail.com>
 
