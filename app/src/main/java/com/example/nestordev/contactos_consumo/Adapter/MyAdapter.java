@@ -3,6 +3,8 @@ package com.example.nestordev.contactos_consumo.Adapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -72,7 +74,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.showMesaje(context, "Has seleccionado a " +"\n" +items.get(i).username);
+                //Utils.showMesaje(context, "Has seleccionado a " +"\n" +items.get(i).username);
+                callPhoneNumber(items.get(i).telephone);
             }
         });
 
@@ -130,6 +133,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
          * con el numero que tiene asignado
          */
 
+    }
+
+    public void callPhoneNumber(String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
     }
 
     public void updateUserListItems(ArrayList<User> users) {
