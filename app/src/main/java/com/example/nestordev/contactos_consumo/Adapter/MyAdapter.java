@@ -1,6 +1,8 @@
 package com.example.nestordev.contactos_consumo.Adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -74,18 +76,43 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             }
         });
 
+
         viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
 
-              boolean resultado = Utils.showMesajeConfirm(context,"¿Estas seguro de eliminar este usuario?"+"\n"+items.get(i).username);
-                Log.d("remove", "onLongClick: "+resultado);
+              //boolean resultado = Utils.showMesajeConfirm(context,"¿Estas seguro de eliminar este usuario?"+"\n"+items.get(i).username);
+              //  Log.d("remove", "onLongClick: "+resultado);
 
-                if (resultado){
-                    items.remove(items.get(i));
-                    updateUserListItems(items);
-                }
-              return resultado;
+              //  if (resultado){
+              //      items.remove(items.get(i));
+              //      updateUserListItems(items);
+              //  }
+              //return resultado;
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        User toDelete = items.get(viewHolder.getAdapterPosition());
+                        items.remove(toDelete);
+                        notifyDataSetChanged();
+
+
+                    }
+                }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+
+                    }
+                }).setMessage("Deseas eliminar al usuario?").setTitle("Confirmacion")
+                        .setCancelable(true);
+
+                AlertDialog alert = builder.create();
+                alert.show();
+
+                return false;
             }
         });
 

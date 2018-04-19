@@ -27,36 +27,6 @@ public class Utils {
         Toast.makeText(contexto,mensage ,Toast.LENGTH_SHORT).show();
     }
 
-    public static Boolean showMesajeConfirm(final Context contexto, String mensage ){
-
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(contexto);
-
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                bandera = true;
-
-            }
-        }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-
-                bandera = false;
-            }
-        }).setMessage(mensage).setTitle(R.string.app_delete_title)
-                .setCancelable(true);
-
-        AlertDialog alert = builder.create();
-                    alert.show();
-
-        return  bandera;
-
-    }
-
-
     public static void showLoading(Context contexto, String mensage){
         pDialog = new ProgressDialog(contexto);
         pDialog.setMessage(mensage);
