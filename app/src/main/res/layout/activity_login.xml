@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:paddingTop="60dp"
+
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logoap"
+
+        />
+
+
+    <EditText
+        android:id="@+id/usuario"
+        android:layout_width="227dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18dp"
+        android:layout_marginTop="19dp"
+        android:hint="@string/output_username"
+        android:textAlignment="center"
+        android:tooltipText="Debes de proporcionar tu usuario"
+        android:textColor="@color/blanco"
+        android:textColorHint="@color/blanco"
+        android:shadowColor="@color/black"
+        android:shadowRadius="50"
+
+
+        />
+
+    <EditText
+        android:id="@+id/passw"
+        android:layout_width="227dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18dp"
+        android:layout_marginTop="19dp"
+        android:hint="@string/output_contra"
+        android:textAlignment="center"
+        android:tooltipText="Debes de proporcionar tu contraseña"
+        android:textColor="@color/blanco"
+        android:textColorHint="@color/blanco"
+        android:shadowColor="@color/black"
+        android:shadowRadius="50"
+
+
+        />
+
+
+    <Button
+        android:id="@+id/acceder"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+
+        android:layout_marginRight="73dp"
+        android:layout_marginLeft="75dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresar"
+        android:background="@color/btn_iniciar"
+        android:textColor="@color/background"
+
+        />
+
+
+</LinearLayout>

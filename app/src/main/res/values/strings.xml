@@ -2,4 +2,7 @@
     <string name="app_name">Contactos_consumo</string>
     <string name="app_delete_user"> ¿Estas seguro de eliminar este usuario?</string>
     <string name="app_delete_title"> Eliminar Usuario </string>
+    <string name="output_username">Ingresa tu usuario</string>
+    <string name="output_contra">Contraseña</string>
+
 </resources>

@@ -1,11 +1,10 @@
 package com.example.nestordev.contactos_consumo.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MenuItem;
 
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
@@ -20,7 +19,6 @@ import com.google.gson.Gson;
 
 import org.json.JSONArray;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
